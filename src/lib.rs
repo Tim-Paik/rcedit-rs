@@ -96,6 +96,15 @@ impl ResourceUpdater {
         }
     }
 
+    pub fn set_application_manifest(&mut self, level: &str) -> RceditResult<()> {
+        let cstr = utf8_to_wide_string(level)?;
+        if unsafe { sys::ResourceUpdater_SetApplicationManifest(self.handle, cstr.as_ptr()) } {
+            Ok(())
+        } else {
+            Err(RceditError::ResourceUpdateFailure)
+        }
+    }
+
     pub fn set_string(&mut self, string_id: u32, data: &str) -> RceditResult<()> {
         let cstr = utf8_to_wide_string(data)?;
         if unsafe { sys::ResourceUpdater_ChangeString(self.handle, string_id, cstr.as_ptr()) } {
