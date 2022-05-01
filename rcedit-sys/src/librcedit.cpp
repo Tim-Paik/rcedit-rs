@@ -59,10 +59,10 @@ extern "C"
         return resourceUpdater->SetExecutionLevel(wLevel);
     }
 
-    bool ResourceUpdater_SetApplicationManifest(ResourceUpdater* ctx, const wchar_t* wValue)
+    bool ResourceUpdater_SetApplicationManifest(ResourceUpdater* ctx, const wchar_t* wManifestPath)
     {
         auto resourceUpdater = reinterpret_cast<rescle::ResourceUpdater*>(ctx);
-        return resourceUpdater->SetApplicationManifest(wValue);
+        return resourceUpdater->SetApplicationManifest(wManifestPath);
     }
 
     bool ResourceUpdater_ChangeRcdata(ResourceUpdater* ctx, uint32_t id, const wchar_t* wRcdataPath)

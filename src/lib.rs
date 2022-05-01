@@ -96,8 +96,8 @@ impl ResourceUpdater {
         }
     }
 
-    pub fn set_application_manifest(&mut self, level: &str) -> RceditResult<()> {
-        let cstr = utf8_to_wide_string(level)?;
+    pub fn set_application_manifest(&mut self, manifest_path: &Path) -> RceditResult<()> {
+        let cstr = path_to_wide_string(manifest_path)?;
         if unsafe { sys::ResourceUpdater_SetApplicationManifest(self.handle, cstr.as_ptr()) } {
             Ok(())
         } else {

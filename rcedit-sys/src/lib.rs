@@ -37,7 +37,7 @@ extern "C" {
 
     pub fn ResourceUpdater_SetExecutionLevel(ctx: ResourceUpdater, wLevel: *const u16) -> bool;
 
-    pub fn ResourceUpdater_SetApplicationManifest(ctx: ResourceUpdater, wLevel: *const u16) -> bool;
+    pub fn ResourceUpdater_SetApplicationManifest(ctx: ResourceUpdater, w_manifest_path: *const u16) -> bool;
 
     pub fn ResourceUpdater_ChangeRcdata(
         ctx: ResourceUpdater,
