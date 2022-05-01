@@ -1,5 +1,6 @@
-use std::path::Path;
+#![cfg(target_os = "windows")]
 
+use std::path::Path;
 use rcedit_sys as sys;
 use thiserror::Error;
 use widestring::WideCString;
